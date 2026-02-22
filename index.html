@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Utilities</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Claude Utils</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#usage">Usage</a></li>
+                <li><a href="#get-started" class="btn btn-nav">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Simple Python utilities,<br>ready when you are.</h1>
+            <p>A lightweight collection of everyday helper functions. No dependencies, no bloat — just clean, tested code.</p>
+            <div class="hero-actions">
+                <a href="#get-started" class="btn btn-primary">Get Started</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2>What's included</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">[ ]</div>
+                    <h3>flatten</h3>
+                    <p>Recursively flatten nested lists of any depth into a single flat list.</p>
+                    <code>flatten([1, [2, [3]]])</code>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">| |</div>
+                    <h3>chunk</h3>
+                    <p>Split any list into evenly sized chunks with a single function call.</p>
+                    <code>chunk([1,2,3,4,5], 2)</code>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">{ }</div>
+                    <h3>deep_merge</h3>
+                    <p>Merge nested dictionaries recursively without losing data.</p>
+                    <code>deep_merge(dict1, dict2)</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="usage" class="usage">
+            <h2>Quick start</h2>
+            <div class="code-block">
+                <pre><span class="kw">from</span> utils <span class="kw">import</span> flatten, chunk, deep_merge
+
+<span class="comment"># Flatten nested lists</span>
+flatten([1, [2, 3], [4, [5, 6]]])
+<span class="comment"># => [1, 2, 3, 4, 5, 6]</span>
+
+<span class="comment"># Split into chunks</span>
+chunk([1, 2, 3, 4, 5], 2)
+<span class="comment"># => [[1, 2], [3, 4], [5]]</span>
+
+<span class="comment"># Deep merge dicts</span>
+deep_merge({<span class="str">"a"</span>: {<span class="str">"b"</span>: 1}}, {<span class="str">"a"</span>: {<span class="str">"c"</span>: 2}})
+<span class="comment"># => {"a": {"b": 1, "c": 2}}</span></pre>
+            </div>
+        </section>
+
+        <section id="get-started" class="cta">
+            <h2>Start using Claude Utils</h2>
+            <p>Copy the file into your project and import what you need. Zero dependencies.</p>
+            <div class="code-block code-block-small">
+                <pre>curl -O https://raw.githubusercontent.com/Lavielavieco/claude/main/utils.py</pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Claude Utils &mdash; Built with care.</p>
+    </footer>
+</body>
+</html>
