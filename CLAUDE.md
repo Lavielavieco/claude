@@ -23,8 +23,46 @@ No build system, package manager, or runtime dependencies are configured yet. Wh
 
 1. **Prerequisites**: (list required tools, runtimes, versions)
 2. **Install dependencies**: (e.g., `npm install`, `pip install -r requirements.txt`)
-3. **Environment variables**: (list required `.env` values or config)
+3. **Environment variables**: see [Environment Variables & API Keys](#environment-variables--api-keys)
 4. **Run the project**: (e.g., `npm run dev`, `python main.py`)
+
+## Environment Variables & API Keys
+
+The following API keys are used across projects in this account. **Never commit the actual key values to this repo.**
+
+| Variable | Service | Where to get a key |
+|----------|---------|--------------------|
+| `UNUSUAL_WHALES_API_KEY` | Unusual Whales (options flow data) | https://unusualwhales.com |
+| `EODHD_API_KEY` | EODHD (historical stock/financial data) | https://eodhd.com |
+| `MASSIVE_API_KEY` | Massive.com | https://massive.com |
+
+### Configuring keys for Claude Code sessions
+
+There are two layers, both required for full coverage:
+
+**1. Local Claude Code config (`~/.claude/settings.json`)**
+
+Adds the keys as `env` entries so they are exported into every Claude Code session on this user account. Already configured for the current container, but this file lives **inside the ephemeral container** and is destroyed when the container is recycled.
+
+**2. Claude Code on the Web — Environment Variables (persistent)**
+
+To survive container recycles, the same keys must be set at the environment level:
+
+1. Go to https://claude.ai/code
+2. Open the environment used for this repo (or the default environment)
+3. **Settings → Environment variables**
+4. Add each variable name + value (`UNUSUAL_WHALES_API_KEY`, `EODHD_API_KEY`, `MASSIVE_API_KEY`)
+5. Save — new sessions will have them injected automatically
+
+### Network access (sandbox allowed domains)
+
+The following domains are whitelisted in `~/.claude/settings.json` under `sandbox.network.allowedDomains` and in `permissions.allow` via `WebFetch(domain:...)`:
+
+- `unusualwhales.com` (and subdomains)
+- `eodhd.com` (and subdomains)
+- `massive.com` (and subdomains)
+
+If the environment's outbound network policy is restrictive, these domains must also be allowlisted in the environment's network policy via the claude.ai/code dashboard.
 
 ## Common Commands
 
